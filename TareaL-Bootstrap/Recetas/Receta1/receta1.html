@@ -1,16 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 
-
     <head>
-        <title>Receta1</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="receta1.css" rel="stylesheet">
+        <title>RECETA 1</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../../styles.css"> <!-- Ruta relativa al archivo styles.css -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
 
 
 	<body>
+
+        <div class="container-fluid">
+            <div class="row content">
+              <div class="col-sm-3 sidenav">
+                <h4>Salads & Life</h4>
+                <ul class="nav nav-pills nav-stacked">
+                  <li><a href="/menu.html">Menu</a></li>
+                  <li class="active"><a href="../index_recetas.html">Recetas</a></li>
+                  <li><a href="/Inventarios/inventarioEnsaladas.html">Inventario</a></li>
+                </ul><br>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search WebSite Salads & life">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                      <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                  </span>
+                </div>
+              </div>
+          
+              <div class="col-sm-9">
+                <h2>Nombre de la receta 2</h2>
+                <h5><span class="glyphicon glyphicon-time"></span> <span class="label label-danger">Food</span> <span class="label label-success">Recipe</span> Post by Ntory, Sep 19, 2023.</h5>
+                <h3><small>Ingredientes</small></h3>
+                <p>Aquí iria UNA TABLA con el ingrediente y la cantidad</p>
+                <hr>
+                
+                
+                <h3><small>Procedimiento</small></h3>
+                <p>Aquí iria el procedimiento</p>
+                <hr>
+
+                <h3><small>Resultado</small></h3>
+                <p>Aquí iria una imagen</p>
+                <hr>
+          
+                <h4>Dejanos un comentario:</h4>
+                <form role="form">
+                  <div class="form-group">
+                    <textarea class="form-control" rows="3" required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-success">Enviar</button>
+                </form>
+                <br><br>
+                
+                <p><span class="badge">2</span> Commentarios:</p><br>
+                
+                <div class="row">
+                  <div class="col-sm-2 text-center">
+                    <img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+                  </div>
+                  <div class="col-sm-10">
+                    <h4>Anja <small>Sep 29, 2015, 9:12 PM</small></h4>
+                    <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <footer class="container-fluid">
+            <p> &copy; Salads & Life All rights reserved. </p>
+          </footer>
+
 	</body>
 
 </html>
