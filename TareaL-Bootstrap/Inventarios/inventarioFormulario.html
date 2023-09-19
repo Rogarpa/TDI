@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Inventario Formulario S&L </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../styles.css"> <!-- Ruta relativa al archivo styles.css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>Salads & Life</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="../menu.html">MENU</a></li>
+        <li> <a href="../Recetas/index_recetas.html">RECETAS</a></li>
+        <li class="active"> <a href="inventarioEnsaladas.html">INVENTARIO</a></li>
+      </ul><br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search WebSite Salads & life">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+      <h2>Formulario Inventario</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by Ntory, Sep 19, 2023.</h5>
+      <h5><span class="label label-danger">Food</span></h5>
+      
+      
+    <div class="container mt-4">
+        <h1>Ingrediente nuevo!</h1>
+        <form>
+            <div class="form-group">
+                <label for="nombreIngrediente">Nombre del Ingrediente-Material</label>
+                <input type="text" class="form-control" id="nombreIngrediente" name="nombreIngrediente" required>
+            </div>
+            <div class="form-group">
+                <label for="cantidadExistencia">Stock Existente</label>
+                <input type="number" class="form-control" id="stockExistente" name="cantidadExistencia" required>
+            </div>
+            <div class="form-group">
+                <label for="costo">Precio</label>
+                <input type="number" class="form-control" id="precio" name="precio" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="fechaAdquisicion">Fecha de Adquisición</label>
+                <input type="date" class="form-control" id="fechaAdquisicion" name="fechaAdquisicion" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar al Inventario</button>
+        </form>
+    </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p> &copy; Salads & Life All rights reserved. </p>
+</footer>
+
+</body>
+</html>

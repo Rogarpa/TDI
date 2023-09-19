@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Receta Formulario S&L </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../styles.css"> <!-- Ruta relativa al archivo styles.css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>Salads & Life</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="../menu.html">MENU</a></li>
+        <li class="active"> <a href="index_recetas.html">RECETAS</a>  </li>
+        <li> <a href="../Inventarios/inventarioEnsaladas.html">INVENTARIO</a></li>
+      </ul><br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search WebSite Salads & life">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+      <h2>Formulario para crear Ensalda</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by Ntory, Sep 19, 2023.</h5>
+      <h5><span class="label label-danger">Food</span></h5>
+      
+      
+      <div class="container mt-4">
+        <h1>Crear Nueva Receta</h1>
+        <form>
+            <div class="form-group">
+                <label for="nombreReceta">Nombre de la Receta</label>
+                <input type="text" class="form-control" id="nombreReceta" name="nombreReceta" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ingredientes">Lista de Ingredientes(máximo 5)</label>
+
+                <div class="row">
+                    <div class="col-md-4">
+                      <label for="ingrediente1">Ingrediente Principal</label>
+                        <input type="text" class="form-control mb-2" name="ingrediente1" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="cantidad1">Cantidad del Ingrediente Principal</label>
+                        <input type="number" class="form-control mb-2" name="cantidad1" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="ingrediente2">Ingrediente 2</label>
+                        <input type="text" class="form-control mb-2" name="ingrediente2" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="cantidad2">Cantidad del Ingrediente 2</label>
+                        <input type="number" class="form-control mb-2" name="cantidad2" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-4">
+                      <label for="ingrediente3">Ingrediente 3</label>
+                      <input type="text" class="form-control mb-2" name="ingrediente3" required>
+                  </div>
+                  <div class="col-md-4">
+                      <label for="cantidad4">Cantidad del Ingrediente 3</label>
+                      <input type="number" class="form-control mb-2" name="cantidad3" required>
+                  </div>
+              </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                      <label for="ingrediente4">Ingrediente 4</label>
+                      <input type="text" class="form-control mb-2" name="ingrediente4" required>
+                  </div>
+                  <div class="col-md-4">
+                      <label for="cantidad4">Cantidad del Ingrediente 4</label>
+                      <input type="number" class="form-control mb-2" name="cantidad4" required>
+                  </div>
+              </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                      <label for="ingrediente5">Ingrediente 5 (aderezo)</label>
+                      <input type="text" class="form-control mb-2" name="ingrediente4" required>
+                  </div>
+                  <div class="col-md-4">
+                      <label for="cantidad5">Cantidad del Ingrediente 5</label>
+                      <input type="number" class="form-control mb-2" name="cantidad5" required>
+                  </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label for="imagen">Imagen de la Ensalada</label>
+                <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label for="procedimiento">Procedimiento</label>
+                <textarea class="form-control" id="procedimiento" name="procedimiento" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Crear Receta</button>
+        </form>
+    </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p> &copy; Salads & Life All rights reserved. </p>
+</footer>
+
+</body>
+</html>
