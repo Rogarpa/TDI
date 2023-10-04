@@ -13,92 +13,110 @@
 
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-3 sidenav">
-      <h4>Salads & Life</h4>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="../menu.html">MENU</a></li>
-        <li class="active"> <a href="index_recetas.html">RECETAS</a>  </li>
-        <li> <a href="../Inventarios/inventarioEnsaladas.html">INVENTARIO</a></li>
-      </ul><br>
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search WebSite Salads & life">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
-      </div>
-    </div>
 
-    <div class="col-sm-9">
-      <h2>Formulario para crear Ensalda</h2>
-      <h5><span class="glyphicon glyphicon-time"></span> Post by Ntory, Sep 19, 2023.</h5>
-      <h5><span class="label label-danger">Food</span></h5>
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky sidenav">
+        <h4>Salads & Life</h4>
+          <ul class="nav flex-column nav-fill">
+            <li class="nav-item">
+              <a class="nav-link" href="../menu.html">MENU</a>
+            </li>
+            <li class="nav-item">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="index_recetas.html">RECETAS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="recetaFormulario.html">EDITAR</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../Inventarios/inventarioEnsaladas.html">INVENTARIO</a>
+            </li>
+          </ul>
+          <div class="input-group mt-3">
+            <span class="input-group-text">
+              <img src="../Recetas/img/search.svg"  alt="Search icon" width="mx-auto"> 
+            </span>
+            <input type="text" class="form-control" placeholder="Search S&L ">
+            <button class="btn btn-outline-secondary" type="button">
+              
+            </button>
+          </div>
+    </nav>
+
+    <div class="col-sm-9  ms-sm-auto col-lg-10 px-md-4">
+      <div class="row">
+        <div class="col-md-3 ">
+          <h2 class="text-center bg-info rounded-5 ">FORMULARIO DE ENSALADAS</h2>
+        </div>
+      </div>
       
       
       <div class="container mt-4">
-        <h1>Crear Nueva Receta</h1>
+        <h4 class="display-6"><small>Crear Nueva Receta:</small></h4>
         <form>
             <div class="form-group">
-                <label for="nombreReceta">Nombre de la Receta</label>
-                <input type="text" class="form-control" id="nombreReceta" name="nombreReceta"   placeholder="Enter recipe name" required>
+                <label for="nombreReceta">Nombre de  la Receta</label>
+                <input type="text" class="form-control" id="nombreReceta" name="nombreReceta"   placeholder="nombre generico de receta" value="Ensalada de manzana" required>
             </div>
 
             <div class="form-group">
-                <label for="ingredientes">Lista de Ingredientes(máximo 5)</label>
+                <label for="ingredientes" class="fw-bold">Lista de Ingredientes(máximo 5):</label>
 
                 <div class="row">
                     <div class="col-md-4">
                       <label for="ingrediente1">Ingrediente Principal</label>
-                        <input type="text" class="form-control mb-2" name="ingrediente1" required>
+                        <input type="text" class="form-control mb-2" name="ingrediente1" placeholder = "nombre de ingrediente" value = "manzana" required>
                     </div>
                     <div class="col-md-4">
                         <label for="cantidad1">Cantidad del Ingrediente Principal</label>
-                        <input type="number" class="form-control mb-2" name="cantidad1" required>
+                        <input type="number" class="form-control mb-2" name="cantidad1" placeholder = "cantidad en gramos" value = "1000" required>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-4">
                         <label for="ingrediente2">Ingrediente 2</label>
-                        <input type="text" class="form-control mb-2" name="ingrediente2" required>
+                        <input type="text" class="form-control mb-2" name="ingrediente2" placeholder = "nombre de ingrediente" value = "zanahoria" required>
                     </div>
                     <div class="col-md-4">
                         <label for="cantidad2">Cantidad del Ingrediente 2</label>
-                        <input type="number" class="form-control mb-2" name="cantidad2" required>
+                        <input type="number" class="form-control mb-2" name="cantidad2" placeholder = "cantidad en gramos" value = "500" required>
                     </div>
                 </div>
                 
                 <div class="row">
                   <div class="col-md-4">
                       <label for="ingrediente3">Ingrediente 3</label>
-                      <input type="text" class="form-control mb-2" name="ingrediente3" required>
+                      <input type="text" class="form-control mb-2" name="ingrediente3" placeholder = "nombre de ingrediente" value = "yogurth" required>
                   </div>
                   <div class="col-md-4">
                       <label for="cantidad4">Cantidad del Ingrediente 3</label>
-                      <input type="number" class="form-control mb-2" name="cantidad3" required>
+                      <input type="number" class="form-control mb-2" name="cantidad3" placeholder = "cantidad en gramos" value = "300" required>
                   </div>
               </div>
 
                 <div class="row">
                   <div class="col-md-4">
                       <label for="ingrediente4">Ingrediente 4</label>
-                      <input type="text" class="form-control mb-2" name="ingrediente4" required>
+                      <input type="text" class="form-control mb-2" name="ingrediente4" placeholder = "nombre de ingrediente" value = "nuez" required>
                   </div>
                   <div class="col-md-4">
                       <label for="cantidad4">Cantidad del Ingrediente 4</label>
-                      <input type="number" class="form-control mb-2" name="cantidad4" required>
+                      <input type="number" class="form-control mb-2" name="cantidad4" placeholder = "cantidad en gramos" value = "80" required>
                   </div>
               </div>
 
                 <div class="row">
                   <div class="col-md-4">
                       <label for="ingrediente5">Ingrediente 5 (aderezo)</label>
-                      <input type="text" class="form-control mb-2" name="ingrediente4" required>
+                      <input type="text" class="form-control mb-2" name="ingrediente4" placeholder = "nombre de ingrediente" value = "lechera" required>
                   </div>
                   <div class="col-md-4">
                       <label for="cantidad5">Cantidad del Ingrediente 5</label>
-                      <input type="number" class="form-control mb-2" name="cantidad5" required>
+                      <input type="number" class="form-control mb-2" name="cantidad5" placeholder = "cantidad en gramos" value = "120" required>
                   </div>
               </div>
             </div>
