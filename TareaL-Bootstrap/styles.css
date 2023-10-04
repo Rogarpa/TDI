@@ -9,8 +9,8 @@
 
 /* Set black background color, white text and some padding */
 footer {
-  background-color: #00ff32;
-  color: #555;
+  background-color: rgba(var(--bs-success-rgb),1);
+  color: #ffff;
   padding: 10px;
 }
 
@@ -22,3 +22,13 @@ footer {
   }
   .row.content {height: auto;} 
 }
+
+/* Sets opacity of bootstrap default backgrounds to 50%*/
+.bg-opacity-50{
+  --bs-bg-opacity: .5;
+};
+
+/* Sets opacity of bootstrap default backgrounds to 25%*/
+.bg-opacity-25{
+  --bs-bg-opacity: .9;
+};
