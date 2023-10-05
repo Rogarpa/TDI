@@ -4,89 +4,116 @@
   <title>Salads & Life</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../styles.css"> <!-- Ruta relativa al archivo styles.css -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css"> <!-- Ruta relativa al archivo styles.css -->  
 </head>
 <body>
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-3 sidenav">
-      <h4>Menu</h4>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="menu.html">MENU</a></li>
-        <li class="active"><a href="Recetas/index_recetas.html">RECETAS</a> <span> </li>
-            <a href="Recetas/index_recetas.html" class="btn btn-primary">Crear Nueva Receta</a>
-        </span> 
-        <li><a href="Inventarios/inventarioEnsaladas.html">INVENTARIO</a></li>
-      </ul><br>
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search WebSite Salads & life">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
+    
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky sidenav">
+        <h4>Salads & Life</h4>
+          <ul class="nav flex-column nav-fill">
+
+            <li class="nav-item">
+              <a class="nav-link" href="menu.html">MENU</a>
+            </li>
+
+            <li class="nav-item">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="Recetas/recetaFormulario.html">CREAR RECETA</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Inventarios/inventarioEnsaladas.html">INVENTARIO</a>
+            </li>
+          </ul>
+          <div class="input-group mt-3">
+            <span class="input-group-text">
+              <img src="Recetas/img/search.svg"  alt="Search icon" width="mx-auto"> 
+            </span>
+            <input type="text" class="form-control" placeholder="Search S&L ">
+            <button class="btn btn-outline-secondary" type="button">
+              
+            </button>
+          </div>
+    </nav>
+
+    <div class="col-sm-9  ms-sm-auto col-lg-10 px-md-4">
+      <div class="row">
+        <div class="col-md-12 center">
+          <h2 class="text-center bg-info rounded-5 ">RECETAS PUBLICADAS</h2>
+        </div>
       </div>
-    </div>
+      <p>La comida es nuestrá pasión!! Y mucho más la saludable, por eso queremos compartir nuestras recetas con todos ustedes.</p>
 
-    <div class="col-sm-9">
-      <h2>Ensaladas</h2>
-      <h5><span class="glyphicon glyphicon-time"></span> Post by Ntory, Sep 19, 2023.</h5>
-      <h5><span class="label label-danger">Food</span></h5><br>
-      <p>La comida es nuestrá pasión y más la saludable, por eso queremos compartir nuestras recetas.</p>
-      <br><br>
+      <h4><small>Recetas recientes:</small></h4>
       
-      <h4><small>Ensaladas disponibles</small></h4>
-      <hr>
-      <ul class="nav nav-pills nav-stacked">
-        
-        <li>
-          <h5>Nombre ensalada 1</h5>
-          <p>Descripcion ensalada 1</p>
-          
-          <p class = "badge badge-secondary">
-            Costo
-          </p>
-          <div class = "bg-success">
-            imagen-ensalada2
-          </div>
-          <a href="../Recetas/Receta1/receta1.html">Receta1</a>
-        </li>
-        <li>
-          <h5>Nombre ensalada 2</h5>
-          <p>Descripcion ensalada 2</p>
-          <p class = "badge badge-secondary">Costo</p>
-          <div class = " bg-success">
-            imagen-ensalada2
-          </div>
-          <a href="../Recetas/Receta2/receta2.html">Receta2</a>
-        </li>
-      </ul><br>
+          <div class="row  row-cols-2 row-cols-md-2 g-4">
 
-      <h4>Dejanos un comentario:</h4>
+            <div class="col" >
+              <div class="card text-center mb-3">
+                  <div class="card-header fw-bold bg-info "> Ensalada de Manzana con Zanahoría</div>
+                  <div class="border border-3 border-success">
+                    <div class="bg-info bg-opacity-50">
+                      <img src="Recetas/img/receta1.png" class="m-5 rounded-5" alt="Ensalada de Manzana con Zanahoría" width="50%"> 
+                      <div class="card-body">
+                        <div class=" bg bg-info bg-opacity-25 border border-primary border-2 rounded-5 m-2">
+                          <p class="card-text text-center">
+                            Receta de una riquisima opción para estas próximas navidades.<br>
+                            Considerada como una ensalada dentro de la categoria de postres.
+                          </p>
+                        </div>
+                        <a href="Recetas/Receta1/receta1.html" class="btn btn-primary">Ver Receta</a>
+                        <div class="badge bg-light text-info">$3.59 </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+
+            <div class="col" >
+              <div class="card text-center mb-3">
+                  <div class="card-header fw-bold bg-info "> Ensalada con queso, tomate y albahaca</div>
+                  <div class="border border-3 border-success">
+                    <div class="bg-info bg-opacity-50">
+                      <img src="Recetas/img/receta2.jpg" class="m-5 rounded-5" alt="Ensalada con queso, tomate y albahaca" width="50%"> 
+                      <div class="card-body">
+                        <div class=" bg bg-info bg-opacity-25 border border-primary border-2 rounded-5 m-2">
+                          <p class="card-text text-center">
+                            Receta de la opción ideal para acompañar cualquier platillo principal.<br>
+                            Y la acompañas con una copa de vino con tu parche de amigos.
+                          </p>
+                        </div>
+                        <a href="Recetas/Receta2/receta2.html" class="btn btn-primary">Ver Receta</a>
+                        <div class="badge bg-light text-info">$3.99 </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            
+            
+
+          </div>
+      <br>
+
+      <h4>Contactanos!</h4>
       <form role="form">
         <div class="form-group">
           <textarea class="form-control" rows="3" required></textarea>
         </div>
-        <button type="submit" class="btn btn-success">Enviar</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
       </form>
-      <br><br>
-      
-      <p><span class="badge">2</span> Commentarios:</p><br>
-      
-      <div class="row">
-        <div class="col-sm-2 text-center">
-          <img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-        </div>
-        <div class="col-sm-10">
-          <h4>Anja <small>Sep 29, 2015, 9:12 PM</small></h4>
-          <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <br>
-        </div>
-      </div>
+
+      <h5> <img src="Recetas/img/clock.svg"  alt="Clock icon" width="mx-auto">  Post by Auth, Sep 19, 2023.</h5>
+      <h5><span class="badge bg-success">Food</span></h5><br>
+
     </div>
   </div>
 </div>
