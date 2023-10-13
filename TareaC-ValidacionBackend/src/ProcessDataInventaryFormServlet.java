@@ -4,11 +4,11 @@ import java.util.Arrays;
 //falta comentarios
 //falta expiracion
 import java.io.IOException;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.regex.Pattern;
-import java.util.Calendar;
-import java.util.regex.Matcher;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+import java.util.*;
+import java.time.*;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -236,3 +236,195 @@ public class ProcessDataInventaryFormServlet extends HttpServlet{
     }
     
 }
+=======
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
+
+public class ProcessDataInventaryFormServlet extends HttpServlet {
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        //Obtener los datos del formulario
+        String nombre = request.getParameter("nombre");
+        String productType = request.getParameter("productType");
+        String adquisicion = request.getParameter("adquisicion");
+        String expiracion = request.getParameter("expiracion");
+        String cantidad = request.getParameter("cantidad");
+        String medida = request.getParameter("medida");
+        String precio = request.getParameter("precio");
+        String descripcion = request.getParameter("descripcion");
+        String comentarios = request.getParameter("comentarios");
+        String Provedor = request.getParameter("Pnombre");
+
+        //validacion de datos
+        boolean validacion = true;
+
+        // Si todo es correcto enviamos a:
+        String action = "success.jsp";
+        
+        //Validacion para nombre
+        if(nombre==null || nombre.trim().isEmpty()){
+            validacion = false;
+            request.setAttribute("nombreError", "El nombre es obligatorio");
+        }else{
+            String patron = "^[\\p{L}\\p{N} ]+$";
+            Pattern pattern = Pattern.compile(patron);
+            Matcher matcher = pattern.matcher(nombre);
+            validacion = matcher.matches();
+            if(validacion=false){
+                request.setAttribute("nombreError", "El nombre no debe llevar caracteres especiales");
+            }
+        }
+
+        //Valida el tipo de producto
+        if (productType == null || !(productType.equals("Perecedero") || productType.equals("Empacar"))) {
+            validacion = false;
+            request.setAttribute("errorproductType", "Error en el tipo de producto");
+        } 
+        
+        //Valida Adquisicion
+        if(adquisicion=="" || adquisicion.isEmpty()){
+            validacion = false;
+            request.setAttribute("erroradquisicion", "La fecha de adquisicion es obligatoria");
+        }else{
+            try {
+                //objeto de la fecha a este tipo de formato
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                java.util.Date fechaAdquisicion = sdf.parse(adquisicion);
+                //fecha actual
+                LocalDate fechaActual = LocalDate.now();
+                // Verificar si el producto tiene fecha de caducidad
+                if ("Perecedero".equals(productType)) {
+                
+                    // Restar 10 años a la fecha actual
+                    LocalDate fechaHace10Anios = fechaActual.minusYears(10);
+                
+                    // Comparar la fecha de adquisición con la fecha actual menos 10 años
+                    if (fechaAdquisicion.before(Date.from(fechaHace10Anios.atStartOfDay(ZoneId.systemDefault()).toInstant()))) {
+                        validacion = false;
+                        request.setAttribute("erroradquisicion", "La fecha debe ser de no más a hace 10 años");
+                    }
+                }
+                if (fechaAdquisicion.after(Date.from(fechaActual.atStartOfDay(ZoneId.systemDefault()).toInstant()))) {
+                    validacion = false;
+                    request.setAttribute("erroradquisicion", "La fecha de adquisición no puede ser posterior a la fecha actual");
+                }
+
+
+            } catch (Exception e) {
+                validacion = false;
+                request.setAttribute("erroradquisicion", "Formato de fecha inválido");
+            }
+        }
+
+        //Valida expiracion
+        if ("Perecedero".equals(productType)) {
+            // El producto es perecedero, por lo que la fecha de caducidad debe ser obligatoria
+            if (expiracion == null || expiracion.isEmpty()) {
+                validacion = false;
+                request.setAttribute("errorexpiracion", "La fecha de expiracion es obligatoria");
+            } else {
+                // Verificar si la fecha de caducidad cumple con los requisitos
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                try {
+                    LocalDate expirationDate = LocalDate.parse(expiracion, formatter);
+                    LocalDate fechaActual = LocalDate.now();
+        
+                    if (expirationDate.isBefore(fechaActual)) {
+                        validacion = false;
+                        request.setAttribute("errorexpiracion", "La fecha de expiracion no puede ser anterior a la actual");
+                    }
+                } catch (DateTimeParseException e) {
+                    validacion = false;
+                    request.setAttribute("errorexpiracion", "Formato de fecha inválido");
+                }
+            }
+        }
+
+        //Valida cantidad
+        if (cantidad == null || cantidad.trim().isEmpty()) {
+            validacion = false;
+            request.setAttribute("errorcantidad", "La cantidad es obligatoria");
+        } else {
+            try {
+                //pasar string a int
+                int cant = Integer.parseInt(cantidad);
+                if(cant<0){
+                    validacion = false;
+                    request.setAttribute("errorcantidad", "La cantidad debe ser mayor a 0");
+                }
+                
+            } catch (NumberFormatException e) {
+                validacion = false;
+                request.setAttribute("errorcantidad", "La cantidad debe ser entera");
+            }
+
+        }
+
+        //Valida medida
+        if (medida == null || !(medida.equals("gramos") || medida.equals("kilogramos") || medida.equals("pieza"))) {
+            validacion = false;
+            request.setAttribute("errormedida", "Error en el tipo de medida");
+        }
+
+        //Valida precio
+        if (precio == null || precio.trim().isEmpty()) {
+            validacion = false;
+            request.setAttribute("errorprecio", "El precio es obligatorio");
+        } else {
+            try {
+                //pasar string a double
+                double prec = Double.parseDouble(cantidad);
+                if(prec<0){
+                    validacion = false;
+                    request.setAttribute("errorprecio", "El precio debe ser mayor a 0");
+                }
+                
+            } catch (NumberFormatException e) {
+                validacion = false;
+                request.setAttribute("errorcantidad", "Error en el precio");
+            }
+
+        }
+
+         //Validacion para provesor
+        if(Provedor==null || Provedor.trim().isEmpty()){
+            validacion = false;
+            request.setAttribute("provedorError", "El nombre del provedor es obligatorio");
+        }else{
+            String patron = "^[\\p{L}\\p{N} ]+$";
+            Pattern pattern = Pattern.compile(patron);
+            Matcher matcher = pattern.matcher(Provedor);
+            validacion = matcher.matches();
+            if(validacion=false){
+                request.setAttribute("provedorError", "El nombre no debe llevar caracteres especiales");
+            }
+        }
+
+        if(validacion){
+            request.getRequestDispatcher("sucess.jsp").forward(request, response);
+        }else{
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+    }
+    
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        out.println("<!DOCTYPE html>");
+        out.println("<html lang='es'>");
+        out.println("<head>");
+        out.println("<title>Probando Servlets ... </title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("Hola mundo con un servlet by ntory... ");
+        out.println("<br />");
+        out.println("Fecha del Servidor: " + LocalDate.now());
+        out.println("<br />");
+        out.println("Hora del Servidor: " + LocalTime.now());
+        out.println("</body>");
+        out.println("</html>");
+    }
+}
+>>>>>>> 7557340 (UPDATE index.jsp falta poner que solo muestre la fecha si tenemos un producto p)

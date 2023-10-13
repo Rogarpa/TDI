@@ -4,7 +4,7 @@
     <title>Receta Formulario S&L </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../styles.css"> <!-- Ruta relativa al archivo styles.css -->
+    <link rel="stylesheet" href="styles.css"> <!-- Ruta relativa al archivo styles.css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
       /* Estilos personalizados para mejorar la apariencia */
@@ -40,7 +40,7 @@
           </ul>
           <div class="input-group mt-3">
             <span class="input-group-text">
-              <img src="../Recetas/img/search.svg"  alt="Search icon" width="mx-auto"> 
+              <img src="img/search.svg"  alt="Search icon" width="mx-auto"> 
             </span>
             <input type="text" class="form-control" placeholder="Search S&L ">
             <button class="btn btn-outline-secondary" type="button">
@@ -57,32 +57,85 @@
               <div class="col-sm-9  ms-sm-auto col-lg-10 px-md-4">
                 <div class="row">
                   <div class="col-md-12 ">
-                    <h2 class="text-center bg-info rounded-5 ">FORMULARIO PARA CREAR UN NUEVO INGREDIENTE </h2>
+                    <h2 class="text-center bg-info rounded-5 ">FORMULARIO PARA AGREGAR UN NUEVO INGREDIENTE </h2>
                   </div>
                 </div>
-                
-                
-                <div class="container mt-2">
-                  <form>
-                    <div class="form-group">
-                        <label for="nombreIngrediente">Nombre del Ingrediente-Material</label>
-                        <input type="text" class="form-control" id="nombreIngrediente" name="nombreIngrediente" placeholder = "Nombre generico del material" value = "Manzana" required>
+                <article>
+                    <div class="row">
+                        <div class="col-md-6 mx-auto">
+                            <form action="ProcessDataInventaryFormServlet" method="post">
+                                <!--Nombre del producto-->
+                                <div class="form-group">
+                                    <label for="nombre">Nombre del producto</label>
+                                    <input type="text" class="form-control"  aria-label="Small" placeholder="Nombre del producto" id="nombre" name="nombre" required>
+                                </div>
+                                <!--Tipo de producto-->
+                                <div class="form-group">
+                                    <label for="productType">Tipo de Producto:</label>
+                                        <select id="productType" name="productType" required>
+                                            <option value="p">Perecedero</option>
+                                            <option value="noP">No Perecedero</option>
+                                            <option value="e">para Empacar</option>
+                                        </select> 
+                                        <br>
+                                    <small id="productTypeHelp" class="form-text text-muted">Por favor selecciona 1.</small>
+                                    <% String productType = (String) request.getAttribute("productType"); %>
+                                </div>
+
+                                <% if ("p".equals(productType)) { %>
+                                  <div class="form-group">
+                                    <label for="adquisicion">Fecha de Adquisicion:</label>
+                                    <input type="date" id="adquisicion" name="adquisicion" required max="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>" />
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="expiracion">Fecha de Caducidad:</label>
+                                    <input type="date" id="expiracion" name="expiracion" min="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>" >
+                                  </div>
+                                <% } %>
+
+                                <!--Cantidad en existencia-->
+                                <div class="form-group">
+                                    <label for="cantidad">Cantidad en existencia</label>
+                                    <input type="number" class="form-control"  aria-label="Small" name="cantidad" id="cantidad" required>
+                                </div>
+                                <!--Medida-->
+                                <div class="form-group">
+                                    <label for="medida">Medida:</label>
+                                    <select id="medida" name="medida" required>
+                                        <option value="g">Gramos</option>
+                                        <option value="kg">Kilogramos</option>
+                                        <option value="ml">Mililitros</option>
+                                        <option value="l">Litros</option>
+                                        <option value="p">Pieza(s)</option>
+                                    </select>
+                                </div>
+                                <!--Precio-->
+                                <div class="form-group">
+                                    <label for="precio">Precio</label>
+                                    <input type="number" id="precio" name="precio" class="form-control"  aria-label="Small" placeholder="Costo" required>
+                                </div>
+                                <!--Descripcion -->
+                                <div class="form-group">
+                                    <label for="descripcion">Descripción(breve) del Producto (opcional):</label>
+                                    <input class="form-control"  aria-label="Small" type="text" name="descripcion" id="descripcion"/>
+                                </div>
+                                <!--Comentarios-->
+                                <div class="form-group">
+                                    <label for="comentarios">Comentarios Adicionales (opcional):</label>
+                                    <textarea class="form-control"  aria-label="Small" id="comentarios" name="comentarios"></textarea>
+                                </div>
+                                <!--Nombre del provedor-->
+                                <div class="form-group">
+                                    <label for="Pnombre">Nombre del Proveedor:</label>
+                                    <input type="text" class="form-control"  aria-label="Small" id="Pnombre" name="Pnombre" required />
+                                </div>
+        
+                                <p></p>
+                                <input type="submit" value="Guardar" />
+                            </form>
+                        </div>
+                        
                     </div>
-                    <div class="form-group">
-                        <label for="cantidadExistencia">Stock Existente</label>
-                        <input type="number" class="form-control" id="stockExistente" name="cantidadExistencia" placeholder = "cantidad en gramos" value = "5000" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="costo">Precio</label>
-                        <input type="number" class="form-control" id="precio" name="precio" placeholder = "precio en pesos mexicanos" value = "200" step="0.01" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="fechaAdquisicion">Fecha de Adquisición</label>
-                        <input type="date" class="form-control" id="fechaAdquisicion" name="fechaAdquisicion" placeholder = "fecha de compra" value="2023-09-30" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Agregar al Inventario</button>
-                </form>
-              </div>
             </div>
           </div>
       </div>
