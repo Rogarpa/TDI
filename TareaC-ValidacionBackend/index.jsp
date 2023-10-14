@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <title>Receta Formulario S&L </title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css"> <!-- Ruta relativa al archivo styles.css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -19,6 +19,10 @@
       }
       .btn-primary {
         border-radius: 1  0;
+      }
+      /* Estilos para centrar el texto del placeholder */
+      .form-control::placeholder {
+          text-align: center;
       }
     </style>
   </head>
@@ -79,24 +83,26 @@
                                         </select> 
                                         <br>
                                     <small id="productTypeHelp" class="form-text text-muted">Por favor selecciona 1.</small>
-                                    <% String productType = (String) request.getAttribute("productType"); %>
+                                    <!-- <% String productType = (String) request.getParameter("productType"); %> -->
                                 </div>
 
-                                <% if ("p".equals(productType)) { %>
-                                  <div class="form-group">
-                                    <label for="adquisicion">Fecha de Adquisicion:</label>
-                                    <input type="date" id="adquisicion" name="adquisicion" required max="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>" />
-                                  </div>
+                                
+                                <!-- Fecha de caducidad -->
                                   <div class="form-group">
                                     <label for="expiracion">Fecha de Caducidad:</label>
                                     <input type="date" id="expiracion" name="expiracion" min="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>" >
                                   </div>
-                                <% } %>
+
+                                <!-- Fecha -->
+                                <div class="form-group">
+                                  <label for="adquisicion">Fecha de Adquisicion:</label>
+                                  <input type="date" id="adquisicion" name="adquisicion" required max="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>" />
+                                </div>
 
                                 <!--Cantidad en existencia-->
                                 <div class="form-group">
                                     <label for="cantidad">Cantidad en existencia</label>
-                                    <input type="number" class="form-control"  aria-label="Small" name="cantidad" id="cantidad" required>
+                                    <input type="number" class="form-control"  aria-label="Small" name="cantidad" id="cantidad"  placeholder="Stock Existente" required>
                                 </div>
                                 <!--Medida-->
                                 <div class="form-group">
@@ -112,22 +118,22 @@
                                 <!--Precio-->
                                 <div class="form-group">
                                     <label for="precio">Precio</label>
-                                    <input type="number" id="precio" name="precio" class="form-control"  aria-label="Small" placeholder="Costo" required>
-                                </div>
-                                <!--Descripcion -->
-                                <div class="form-group">
-                                    <label for="descripcion">DescripciÃ³n(breve) del Producto (opcional):</label>
-                                    <input class="form-control"  aria-label="Small" type="text" name="descripcion" id="descripcion"/>
-                                </div>
-                                <!--Comentarios-->
-                                <div class="form-group">
-                                    <label for="comentarios">Comentarios Adicionales (opcional):</label>
-                                    <textarea class="form-control"  aria-label="Small" id="comentarios" name="comentarios"></textarea>
+                                    <input type="number" id="precio" name="precio" class="form-control"  aria-label="Small" placeholder="Precio del Producto" required>
                                 </div>
                                 <!--Nombre del provedor-->
                                 <div class="form-group">
                                     <label for="Pnombre">Nombre del Proveedor:</label>
-                                    <input type="text" class="form-control"  aria-label="Small" id="Pnombre" name="Pnombre" required />
+                                    <input type="text" class="form-control"  aria-label="Small" id="Pnombre" name="Pnombre" placeholder="Proveedor del Producto"  required />
+                                </div>
+                                <!--Descripcion -->
+                                <div class="form-group">
+                                    <label for="descripcion">Descripción del Producto (breve y opcional):</label>
+                                    <input class="form-control"  aria-label="Small" type="text" name="descripcion" id="descripcion"  placeholder="Descripción breve del Producto(opcional)" />
+                                </div>
+                                <!--Comentarios-->
+                                <div class="form-group">
+                                    <label for="comentarios">Comentarios Adicionales (opcional):</label>
+                                    <textarea class="form-control"  aria-label="Small" id="comentarios" name="comentarios"  placeholder="Comentarios Adicionales del Producto"></textarea>
                                 </div>
         
                                 <p></p>
