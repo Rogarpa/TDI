@@ -109,13 +109,16 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>${param.tipoProducto}</td>
-                        <td>${param.fechaCaducidad}</td>
-                        <td>${param.cantidadExistencia}</td>
+                        <td>${param.nombre}</td>
+                        <td>${param.productType}</td>
+                        <td>${param.adquisicion}</td>
+                        <td>${param.expiracion}</td>
+                        <td>${param.cantidad}</td>
                         <td>${param.medida}</td>
+                        <td>${param.precio}</td>
                         <td>${param.descripcion}</td>
-                        <td>${param.comentario}</td>
-                        <td>${param.nombreProveedor}</td>
+                        <td>${param.comentarios}</td>
+                        <td>${param.Pnombre}</td>
                     </tr>
                     
                   
