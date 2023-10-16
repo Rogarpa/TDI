@@ -156,6 +156,7 @@
                                     <div class="text-danger">
                                       <%
                                       if (request.getAttribute("errormedida") != null ) {
+                                        
                                           out.println(request.getAttribute("errormedida"));
                                       } 
                                         %>
@@ -190,7 +191,7 @@
                                 <!--Descripcion -->
                                 <div class="form-group">
                                     <label for="descripcion">Descripción del Producto (breve y opcional):</label>
-                                    <input class="form-control"  aria-label="Small" type="text" name="descripcion" id="descripcion"  placeholder="Descripciï¿½n breve del Producto(opcional)" />
+                                    <input class="form-control"  aria-label="Small" type="text" name="descripcion" id="descripcion"  placeholder="Descripción breve del Producto(opcional)" />
                                 </div>
                                 <!--Comentarios-->
                                 <div class="form-group">
