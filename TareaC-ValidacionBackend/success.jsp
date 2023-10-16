@@ -36,7 +36,7 @@
           </ul>
           <div class="input-group mt-3">
             <span class="input-group-text">
-              <img src="../Recetas/img/search.svg"  alt="Search icon" width="mx-auto"> 
+              <img src="img/search.svg"  alt="Search icon" width="mx-auto"> 
             </span>
             <input type="text" class="form-control" placeholder="Search S&L ">
             <button class="btn btn-outline-secondary" type="button">
@@ -93,13 +93,16 @@
               <table class="table">
                 <thead>
                     <tr>
+                        <th>Nombre del producto</th>
                         <th>Tipo de Producto</th>
-                        <th>Fecha de Caducidad</th>
-                        <th>Cantidad de Existencia</th>
+                        <%= (request.getParameter("expiracion") == "")? "":"<th>Fecha de Caducidad</th>" %>
+                        <th>Fecha de Adquisicion</th>
+                        <th>Cantidad en existencia</th>
                         <th>Medida</th>
-                        <th>Descripcion</th>
-                        <th>Comentarios Adicionales</th>
+                        <th>Precio</th>
                         <th>Nombre del Proveedor</th>
+                        <%= (request.getParameter("descripcion") == "")? "":"<th>Descripci\u00f3n del Producto</th>" %>
+                        <%= (request.getParameter("comentarios") == "")? "":"<th>Comentarios Adicionales</th>" %>
 
                         <!-- <th>Nombre</th>
                         <th>Existencia</th>
@@ -111,14 +114,14 @@
                     <tr>
                         <td>${param.nombre}</td>
                         <td>${param.productType}</td>
+                        <%= (request.getParameter("expiracion") == "")? "":("<td>"+request.getParameter("expiracion")+"</td>")%>
                         <td>${param.adquisicion}</td>
-                        <td>${param.expiracion}</td>
                         <td>${param.cantidad}</td>
                         <td>${param.medida}</td>
                         <td>${param.precio}</td>
-                        <td>${param.descripcion}</td>
-                        <td>${param.comentarios}</td>
                         <td>${param.Pnombre}</td>
+                        <%= (request.getParameter("descripcion") == "")? "":("<td>"+request.getParameter("descripcion")+"</td>")%>
+                        <%= (request.getParameter("comentarios") == "")? "":("<td>"+request.getParameter("comentarios")+"</td>")%>
                     </tr>
                     
                   

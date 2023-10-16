@@ -166,9 +166,28 @@ public class ProcessDataInventaryFormServlet extends HttpServlet{
         /**
          * Validación de medida
          */
+
+        String[] medidaPerecederosRange = {"g","kg","ml","l"};
+        String[] medidaEmpacarRange = {"p"};
         if (stringInvalida(medida)) {
             validacion = false;
             request.setAttribute("errormedida", "Error en el tipo de medida");
+        }else{
+            boolean belongsPerecederos = Arrays.stream(productTypeRange).anyMatch(productType::equals);
+            if("Perecedero".equals(productType)){
+                boolean pertenecePerecederos = Arrays.stream(medidaPerecederosRange).anyMatch(medida::equals);
+                if(!(pertenecePerecederos)){
+                    validacion = false;
+                    request.setAttribute("errormedida", "La medida debe ser para tipos perecederos");
+                }
+            }
+            if("Empacar".equals(productType)){
+                boolean perteneceEmpacar = Arrays.stream(medidaEmpacarRange).anyMatch(medida::equals);
+                if(!(perteneceEmpacar)){
+                    validacion = false;
+                    request.setAttribute("errormedida", "La medida debe ser para tipo empacar");
+                }
+            }
         }
 
         /**
@@ -209,17 +228,12 @@ public class ProcessDataInventaryFormServlet extends HttpServlet{
                 request.setAttribute("provedorError", "El nombre no debe llevar caracteres especiales");
             }
         }
-        System.out.println(Collections.list(request.getParameterNames()));
-        System.out.println(Collections.list(request.getParameterNames()));
-        System.out.println(Collections.list(request.getAttributeNames()));
-        
-        
 
         // Redirigimos:
         if(validacion){
             request.getRequestDispatcher("success.jsp").forward(request, response);//Vista confirmación adición a inventario
         }else{
-            request.getRequestDispatcher("indexjosue.jsp").forward(request, response); //Vista inicial de formulario
+            request.getRequestDispatcher("index.jsp").forward(request, response); //Vista inicial de formulario
         }
 
     }

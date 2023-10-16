@@ -77,9 +77,9 @@
                                 <div class="form-group">
                                     <label for="productType">Tipo de Producto:</label>
                                         <select id="productType" name="productType" required>
-                                            <option value="p">Perecedero</option>
+                                            <option value="Perecedero">Perecedero</option>
                                             <option value="noP">No Perecedero</option>
-                                            <option value="e">para Empacar</option>
+                                            <option value="Empacar">para Empacar</option>
                                         </select> 
                                         <br>
                                     <small id="productTypeHelp" class="form-text text-muted">Por favor selecciona 1.</small>
@@ -127,8 +127,8 @@
                                 </div>
                                 <!--Descripcion -->
                                 <div class="form-group">
-                                    <label for="descripcion">Descripción del Producto (breve y opcional):</label>
-                                    <input class="form-control"  aria-label="Small" type="text" name="descripcion" id="descripcion"  placeholder="Descripción breve del Producto(opcional)" />
+                                    <label for="descripcion">Descripci\u00f3n del Producto (breve y opcional):</label>
+                                    <input class="form-control"  aria-label="Small" type="text" name="descripcion" id="descripcion"  placeholder="Descripciï¿½n breve del Producto(opcional)" />
                                 </div>
                                 <!--Comentarios-->
                                 <div class="form-group">
