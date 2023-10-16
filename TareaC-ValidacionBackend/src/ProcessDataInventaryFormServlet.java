@@ -131,7 +131,7 @@ public class ProcessDataInventaryFormServlet extends HttpServlet{
         
                     if (expirationDate.isBefore(fechaActual)) {
                         validacion = false;
-                        request.setAttribute("errorexpiracion", "La fecha d     e expiracion no puede ser anterior a la actual");
+                        request.setAttribute("errorexpiracion", "La fecha de expiracion no puede ser anterior a la actual");
                     }
                 } catch (DateTimeParseException e) {//Reporte de fallo en el casteo a formato de fecha yyyy-MM-dd
                     validacion = false;
@@ -200,7 +200,7 @@ public class ProcessDataInventaryFormServlet extends HttpServlet{
         } else {
             try {
                 //Verificación de condicion de ser precio positivo
-                double prec = Double.parseDouble(cantidad);
+                double prec = Double.parseDouble(precio);
                 if(prec<0){
                     validacion = false;
                     request.setAttribute("errorprecio", "El precio debe ser mayor a 0");

@@ -71,63 +71,125 @@
                                 <!--Nombre del producto-->
                                 <div class="form-group">
                                     <label for="nombre">Nombre del producto</label>
-                                    <input type="text" class="form-control"  aria-label="Small" placeholder="Nombre del producto" id="nombre" name="nombre" required>
+                                    <input type="text" class="form-control"  aria-label="Small" placeholder="Nombre del producto" id="nombre" name="nombre"
+                                    value= "<%= request.getParameter("nombre") %>" />
+                                    <div class="text-danger">
+                                      <%
+                                      if (request.getAttribute("nombreError") != null ) {
+                                          out.println(request.getAttribute("nombreError"));
+                                      } 
+                                        %>
+                                    </div>
                                 </div>
+
                                 <!--Tipo de producto-->
                                 <div class="form-group">
                                     <label for="productType">Tipo de Producto:</label>
-                                        <select id="productType" name="productType" required>
+                                        <select id="productType" name="productType" required value= "<%= request.getParameter("productType") %>" />
                                             <option value="Perecedero">Perecedero</option>
-                                            <option value="noP">No Perecedero</option>
                                             <option value="Empacar">para Empacar</option>
                                         </select> 
                                         <br>
                                     <small id="productTypeHelp" class="form-text text-muted">Por favor selecciona 1.</small>
-                                    <!-- <% String productType = (String) request.getParameter("productType"); %> -->
+                                    <div class="text-danger">
+                                      <%
+                                        if (request.getAttribute("errorproductType") != null ) {
+                                            out.println(request.getAttribute("errorproductType"));
+                                        } 
+                                      %>
+                                    </div>
                                 </div>
 
                                 
                                 <!-- Fecha de caducidad -->
                                   <div class="form-group">
                                     <label for="expiracion">Fecha de Caducidad:</label>
-                                    <input type="date" id="expiracion" name="expiracion" min="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>" >
+                                    <input type="date" id="expiracion" name="expiracion" min="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>"
+                                    value= "<%= request.getParameter("expiracion") %>" />
+                                    <div class="text-danger">
+                                      <%
+                                      if (request.getAttribute("errorexpiracion") != null ) {
+                                          out.println(request.getAttribute("errorexpiracion"));
+                                      } 
+                                      %>
+                                    </div>
                                   </div>
 
                                 <!-- Fecha -->
                                 <div class="form-group">
                                   <label for="adquisicion">Fecha de Adquisicion:</label>
-                                  <input type="date" id="adquisicion" name="adquisicion" required max="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>" />
+                                  <input type="date" id="adquisicion" name="adquisicion" required max="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>" 
+                                    value= "<%= request.getParameter("adquisicion") %>" />
+                                    <div class="text-danger">
+                                      <%
+                                      if (request.getAttribute("erroradquisicion") != null ) {
+                                          out.println(request.getAttribute("erroradquisicion"));
+                                      } 
+                                      %>
+                                    </div>
                                 </div>
 
                                 <!--Cantidad en existencia-->
                                 <div class="form-group">
                                     <label for="cantidad">Cantidad en existencia</label>
-                                    <input type="number" class="form-control"  aria-label="Small" name="cantidad" id="cantidad"  placeholder="Stock Existente" required>
+                                    <input type="number" class="form-control"  aria-label="Small" name="cantidad" id="cantidad"  placeholder="Stock Existente"
+                                    value= "<%= request.getParameter("cantidad") %>" />
+                                    <div class="text-danger">
+                                      <%
+                                      if (request.getAttribute("errorcantidad") != null ) {
+                                          out.println(request.getAttribute("errorcantidad"));
+                                      } 
+                                        %>
+                                    </div>
                                 </div>
                                 <!--Medida-->
                                 <div class="form-group">
                                     <label for="medida">Medida:</label>
-                                    <select id="medida" name="medida" required>
+                                    <select id="medida" name="medida" required 
+                                    value= "<%= request.getParameter("medida") %>" />
                                         <option value="g">Gramos</option>
                                         <option value="kg">Kilogramos</option>
                                         <option value="ml">Mililitros</option>
                                         <option value="l">Litros</option>
                                         <option value="p">Pieza(s)</option>
                                     </select>
+                                    <div class="text-danger">
+                                      <%
+                                      if (request.getAttribute("errormedida") != null ) {
+                                          out.println(request.getAttribute("errormedida"));
+                                      } 
+                                        %>
+                                    </div>
                                 </div>
                                 <!--Precio-->
                                 <div class="form-group">
                                     <label for="precio">Precio</label>
-                                    <input type="number" id="precio" name="precio" class="form-control"  aria-label="Small" placeholder="Precio del Producto" required>
+                                    <input type="number" id="precio" name="precio" class="form-control"  aria-label="Small" placeholder="Precio del Producto"
+                                    value= "<%= request.getParameter("precio") %>" />
+                                    <div class="text-danger">
+                                      <%
+                                      if (request.getAttribute("errorprecio") != null ) {
+                                          out.println(request.getAttribute("errorprecio"));
+                                      } 
+                                      %>
+                                    </div>
                                 </div>
                                 <!--Nombre del provedor-->
                                 <div class="form-group">
                                     <label for="Pnombre">Nombre del Proveedor:</label>
-                                    <input type="text" class="form-control"  aria-label="Small" id="Pnombre" name="Pnombre" placeholder="Proveedor del Producto"  required />
+                                    <input type="text" class="form-control"  aria-label="Small" id="Pnombre" name="Pnombre" placeholder="Proveedor del Producto" 
+                                    value= "<%= request.getParameter("Pnombre") %>" />
+                                    <div class="text-danger">
+                                      <%
+                                      if (request.getAttribute("provedorError") != null ) {
+                                          out.println(request.getAttribute("provedorError"));
+                                      } 
+                                        %>
+                                    </div>
                                 </div>
                                 <!--Descripcion -->
                                 <div class="form-group">
-                                    <label for="descripcion">Descripci\u00f3n del Producto (breve y opcional):</label>
+                                    <label for="descripcion">Descripción del Producto (breve y opcional):</label>
                                     <input class="form-control"  aria-label="Small" type="text" name="descripcion" id="descripcion"  placeholder="Descripciï¿½n breve del Producto(opcional)" />
                                 </div>
                                 <!--Comentarios-->

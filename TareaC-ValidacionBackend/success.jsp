@@ -4,7 +4,7 @@
   <title>Inventario de Ensaladas</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../styles.css"> <!-- Ruta relativa al archivo styles.css -->
+  <link rel="stylesheet" href="styles.css"> <!-- Ruta relativa al archivo styles.css -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
@@ -86,7 +86,7 @@
         </div>
       </ul><br> -->
 
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="card-header fw-bold bg-info "></div>
         <div class="border border-3 border-success p-1">
           <div class="bg-info bg-opacity-50">
@@ -101,7 +101,7 @@
                         <th>Medida</th>
                         <th>Precio</th>
                         <th>Nombre del Proveedor</th>
-                        <%= (request.getParameter("descripcion") == "")? "":"<th>Descripci\u00f3n del Producto</th>" %>
+                        <%= (request.getParameter("descripcion") == "")? "":"<th>Descripción del Producto</th>" %>
                         <%= (request.getParameter("comentarios") == "")? "":"<th>Comentarios Adicionales</th>" %>
 
                         <!-- <th>Nombre</th>
@@ -125,8 +125,7 @@
                     </tr>
                     
                   
-                    <!-- Agrega más ingredientes según sea necesario
-                    
+                    <!-- Agrega más ingredientes según sea necesario 
                     <tr>
                         <td>Limón</td>
                         <td>1 pieza</td>
