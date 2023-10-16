@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <title>Inventario de Ensaladas</title>
   <meta charset="utf-8">
@@ -15,23 +15,11 @@
       <div class="position-sticky sidenav">
         <h4>Salads & Life</h4>
           <ul class="nav flex-column nav-fill">
-
             <li class="nav-item">
               <a class="nav-link" href="../menu.html">MENU</a>
             </li>
-
-            <li class="nav-item">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="../Recetas/recetaFormulario.html">CREAR RECETA</a>
-                </li>
-              </ul>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="../Inventarios/inventarioEnsaladas.html">INVENTARIO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../Inventarios/inventarioFormulario.html">CREAR INGREDIENTE</a>
             </li>
           </ul>
           <div class="input-group mt-3">
@@ -39,11 +27,12 @@
               <img src="img/search.svg"  alt="Search icon" width="mx-auto"> 
             </span>
             <input type="text" class="form-control" placeholder="Search S&L ">
-            <button class="btn btn-outline-secondary" type="button">
+            <button class="btn btn-outline-secondary" type  ="button">
               
             </button>
           </div>
     </nav>
+
 
     <div class="col-sm-9  ms-sm-auto col-lg-10 px-md-4">
       <div class="row">
@@ -101,7 +90,7 @@
                         <th>Medida</th>
                         <th>Precio</th>
                         <th>Nombre del Proveedor</th>
-                        <%= (request.getParameter("descripcion") == "")? "":"<th>Descripción del Producto</th>" %>
+                        <%= (request.getParameter("descripcion") == "")? "":"<th>Descripci&#243;n del Producto</th>" %>
                         <%= (request.getParameter("comentarios") == "")? "":"<th>Comentarios Adicionales</th>" %>
 
                         <!-- <th>Nombre</th>
